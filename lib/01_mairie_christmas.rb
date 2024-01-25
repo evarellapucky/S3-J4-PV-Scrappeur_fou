@@ -13,6 +13,7 @@ def get_townhalls_url
   townhall_urls_array = page.xpath('//table//a[@class="lientxt"]/@href').map(&:text)
   full_urls_array = townhall_urls_array.map {|url| "https://annuaire-des-mairies.com" + url[1..-1]}
   return full_urls_array
+  return townhall_urls_array
 end
 
 def get_emails
@@ -29,14 +30,4 @@ end
 
 puts get_emails
 
-# def perform
-#   emails = get_emails
-#   emails
-# end
-
-# perform
-
-# city_name_array = page.xpath('//table//a[@class="lientxt"]').map(&:text)
-# city_urls_array = page.xpath('//table//a[@class="lientxt"]/@href').map(&:text)
-# city_full_urls_array = city_urls_array.map {|url| "https://annuaire-des-mairies.com" + url[1..-1]}
 
